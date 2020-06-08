@@ -1,0 +1,26 @@
+for f in $(ls -l | grep -v mask | grep jpeg | awk '{print $9}')
+do
+    echo $f
+    mv $f image/img/
+done
+
+
+for f in $(ls -l | grep mask | grep jpeg | awk '{print $9}')
+do
+    echo $f
+    mv $f mask/img/
+done
+
+### rename
+for f in $(ls -l | grep mask | grep jpeg | awk '{print $9}')
+do
+    echo $f
+    f_new=$(echo $f | sed 's/_mask//g')
+    echo $f_new
+    mv $f $f_new
+done
+
+
+tf 1.15.0
+
+keras 2.1.6
